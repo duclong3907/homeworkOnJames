@@ -59,7 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Idol Korean'),
+        title: Text('Idol Korean', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        backgroundColor: Colors.pink,
         actions: [
           IconButton(
             icon: Icon(Icons.filter_list),
@@ -71,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           if (_isSearchVisible)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.all(16),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search...',
@@ -96,7 +98,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-          SizedBox(height: 16),
           Expanded(
             child: ListView.builder(
               itemCount: filteredItems.length,

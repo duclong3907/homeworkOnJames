@@ -12,7 +12,9 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(singer.name),
+        title: Text(singer.name, style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        backgroundColor: Colors.pink,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -20,24 +22,25 @@ class DetailsScreen extends StatelessWidget {
           children: [
             _buildBanner(),
             _buildMain(context),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blueGrey, // Background color
-                border: Border.all(
-                  color: Colors.white, // Border color
-                  width: 2.0, // Border width
+            GestureDetector(
+              child: Container(
+                height: 54,
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey, // Background color
+                  border: Border.all(
+                    color: Colors.white, // Border color
+                    width: 2.0, // Border width
+                  ),
+                  borderRadius: BorderRadius.circular(8.0), // Rounded corners
                 ),
-                borderRadius: BorderRadius.circular(8.0), // Rounded corners
-              ),
-              child: Center(
-                child: TextButton(
-                  onPressed: () => _launchCourse(singer.link),
+                child: Center(
                   child: Text(
-                    'View course',
-                    style: TextStyle(color: Colors.white), // Text color
+                      'View course',
+                      style: TextStyle(color: Colors.white), // Text color
                   ),
                 ),
               ),
+              onTap: () => _launchCourse(singer.link),
             ),
             SizedBox(height: 50),
           ],

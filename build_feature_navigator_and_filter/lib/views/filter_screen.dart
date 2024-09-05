@@ -31,7 +31,9 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Filter'),
+        title: Text('Filter', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        backgroundColor: Colors.pink,
       ),
       body: Column(
         children: <String>['All', 'BlackPink','APink', 'G-Friend', 'Twice'].map((String value) {
