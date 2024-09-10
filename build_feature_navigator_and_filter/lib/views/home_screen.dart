@@ -12,22 +12,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final IdolkoreanRepository _itemRepository = IdolkoreanRepository();
-  List<Idolkorean> idolKoreans = [];
-  String _groupFilter = 'All';
-  String _searchQuery = '';
-  bool _isSearchVisible = false;
+  final IdolkoreanRepository _itemRepository = IdolkoreanRepository(); // tạo một đối tượng của IdolkoreanRepository
+  List<Idolkorean> idolKoreans = []; // tạo một danh sách idolKoreans
+  String _groupFilter = 'All'; // dung de luu tru gia tri cua groupFilter
+  String _searchQuery = ''; // dung de luu tru gia tri cua search bar
+  bool _isSearchVisible = false; // dung de kiem tra xem co dang hien thi search bar hay khong
   @override
   void initState() {
     super.initState();
-    idolKoreans = _itemRepository.getItems();
-    _loadFilters();
+    idolKoreans = _itemRepository.getItems(); // lay danh sach idolKoreans tu IdolkoreanRepository
+    _loadFilters(); // load gia tri cua groupFilter
   }
 
   _loadFilters() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance(); // lay gia tri cua groupFilter tu SharedPreferences
     setState(() {
-      _groupFilter = prefs.getString('groupFilter') ?? 'All';
+      _groupFilter = prefs.getString('groupFilter') ?? 'All'; // neu groupFilter khong co gia tri thi lay gia tri mac dinh la All
     });
   }
 
@@ -35,10 +35,15 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.of(context).push(PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => FilterScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(1.0, 0.0);
-        const end = Offset.zero;
-        const curve = Curves.easeInOut;
+        const begin = Offset(1.0, 0.0); // vi tri bat dau cua FilterScreen
+        const end = Offset.zero; // vi tri cuoi cua FilterScreen
+        // const end = Offset(0.2, 0.0); //cach le 20%
+        const curve = Curves.easeInOut; // duong cong chuyen dong cua animation khi chuyen trang FilterScreen
 
+        //hieu ung truot khi chuyen trang
+        // Tween(begin: begin, end: end): Tween (interpolation) được sử dụng để chuyển đổi từ giá trị bắt đầu Offset(1.0, 0.0) sang giá trị kết thúc Offset.zero.
+        //.chain(CurveTween(curve: curve)): Áp dụng đường cong Curves.easeInOut cho quá trình tween để chuyển động mượt hơn.
+        // animation.drive(tween): Sử dụng animation để điều khiển tween, tức là thực hiện quá trình chuyển đổi theo thời gian mà animation cung cấp.
         var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         var offsetAnimation = animation.drive(tween);
 
@@ -78,13 +83,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: InputDecoration(
                   hintText: 'Search...',
                   hintStyle: TextStyle(color: Colors.blueGrey),
-                  border: OutlineInputBorder(
+                  border: OutlineInputBorder( // dung de tao border cho search bar
                     borderSide: BorderSide(
                       color: Colors.blueGrey, // Border color
                       width: 2.0, // Border width
                     ),
                   ),
-                  suffixIcon: IconButton(
+                  suffixIcon: IconButton( // dung de hien thi icon search
                     icon: Icon(Icons.search),
                     onPressed: null
                   ),

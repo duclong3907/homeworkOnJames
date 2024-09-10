@@ -36,7 +36,7 @@ class _FilterScreenState extends State<FilterScreen> {
         backgroundColor: Colors.pink,
       ),
       body: Column(
-        children: <String>['All', 'BlackPink','APink', 'G-Friend', 'Twice'].map((String value) {
+        children: <String>['All', 'BlackPink','APink', 'G-Friend', 'Twice'].map((String value) { // tao ra 1 list cac radio button
           return RadioListTile<String>(
             title: Text(value),
             value: value,

@@ -35,7 +35,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                      'View course',
+                      'View Details',
                       style: TextStyle(color: Colors.white), // Text color
                   ),
                 ),
@@ -85,7 +85,7 @@ class DetailsScreen extends StatelessWidget {
   void _launchCourse(String link) {
     launchUrlString(
         'https://vi.wikipedia.org/wiki/$link',
-        mode: LaunchMode.externalApplication
+        mode: LaunchMode.externalApplication // Open in external browser
     );
 
   }

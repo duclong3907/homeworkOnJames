@@ -30,6 +30,6 @@ class IdolkoreanRepository {
       // Add more items
     ];
 
-    return itemsData.map((itemData) => Idolkorean.fromMap(itemData)).toList();
+    return itemsData.map((itemData) => Idolkorean.fromMap(itemData)).toList(); // tra ve 1 list cac doi tuong Idolkorean
   }
 }
