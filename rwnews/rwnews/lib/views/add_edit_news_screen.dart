@@ -146,7 +146,7 @@ class AddEditNewsScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                   labelText: 'Source',
                   border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.description),
+                  prefixIcon: Icon(Icons.source),
                 ),
               ),
               const SizedBox(height: 15),
@@ -174,7 +174,7 @@ class AddEditNewsScreen extends StatelessWidget {
               TextFormField(
                 controller: contentController,
                 decoration: const InputDecoration(
-                  labelText: 'Comments',
+                  labelText: 'Content',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.description),
                 ),
@@ -185,7 +185,7 @@ class AddEditNewsScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.description),
+                  prefixIcon: Icon(Icons.mail),
                 ),
               ),
               const SizedBox(height: 20),
